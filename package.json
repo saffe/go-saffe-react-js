@@ -1,0 +1,37 @@
+{
+  "name": "@go.saffe/go-saffe-react-js",
+  "version": "1.0.0",
+  "description": "Go saffe componente for react js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saffe/go-saffe-react-js.git"
+  },
+  "author": "Pedro Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saffe/go-saffe-react-js/issues"
+  },
+  "homepage": "https://github.com/saffe/go-saffe-react-js#readme",
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "react": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "@go.saffe:registry": "https://npm.pkg.github.com"
+  }
+}
