@@ -22,12 +22,12 @@ import { GoSaffeCapture } from '@go-saffe/go-saffe-react-js'
 export function Example() {
   return (
     <GoSaffeCapture
-      apiKey='your-apikey'
-      endToEndId='' // unique id to ensure the capture is your
-      onClose={() => console.log('')} // Run function on close component
-      onFinish={() => console.log('')} // Run function on finish capture
-      type='onboarding' // 'onboarding' or 'verification'
-      user='' // user identifier
+      apiKey='' // capture key (sandbox or production)
+      user='' // end-user identifier (either email or CPF)
+      type='' // 'onboarding' or 'verification'
+      endToEndId='' // identifier to keep consistency between front and backend
+      onClose={() => console.log('')} // callback function called when end-user closes (cancels) the capture
+      onFinish={() => console.log('')} // callback function called when end-user finishes (completes) the capture
     />
   )
 }
