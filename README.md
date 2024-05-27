@@ -7,17 +7,17 @@
 ## Install
 
 ```bash
-npm install --save @go-saffe/go-saffe-react-js
+npm install --save @go.saffe/go-saffe-react-js
 ```
 
 ```bash
-yarn add @go-saffe/go-saffe-react-js
+yarn add @go.saffe/go-saffe-react-js
 ```
 
 ## Usage
 
 ```tsx
-import { GoSaffeCapture } from '@go-saffe/go-saffe-react-js'
+import { GoSaffeCapture } from '@go.saffe/go-saffe-react-js'
 
 export function Example() {
   return (
