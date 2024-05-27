@@ -22,7 +22,7 @@ import { GoSaffeCapture } from '@go.saffe/go-saffe-react-js'
 export function Example() {
   return (
     <GoSaffeCapture
-      apiKey='' // capture key (sandbox or production)
+      captureKey='' // capture key (sandbox or production)
       user='' // end-user identifier (either email or CPF)
       type='' // 'onboarding' or 'verification'
       endToEndId='' // identifier to keep consistency between front and backend

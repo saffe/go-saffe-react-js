@@ -5,7 +5,7 @@ interface InitFunc {
 }
 
 interface Props {
-  apiKey: string
+  captureKey: string
   user: string
   endToEndId: string
   type: 'verification' | 'onboarding'
@@ -28,7 +28,7 @@ export const CaptureComponent = (props: Props) => {
         body.appendChild(script)
         script.addEventListener('load', () => {
           window.GoSaffe.init(
-            props.apiKey,
+            props.captureKey,
             props.user,
             props.endToEndId,
             props.type

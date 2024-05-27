@@ -1,6 +1,6 @@
 {
   "name": "@go.saffe/go-saffe-react-js",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Go saffe capture component for react js",
   "author": "pedrovictorcruz",
   "license": "MIT",
@@ -62,3 +62,4 @@
   ],
   "dependencies": {}
 }
+
