@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { CaptureComponent } from './components/GoSaffeCapture'
 
 interface Props {
-  apiKey: string
+  captureKey: string
   user: string
   endToEndId: string
   type: 'verification' | 'onboarding'
@@ -36,7 +36,7 @@ export const GoSaffeCapture = (props: Props) => {
   return (
     <React.StrictMode>
       <CaptureComponent
-        apiKey={props.apiKey}
+        captureKey={props.captureKey}
         endToEndId={props.endToEndId}
         type={props.type}
         user={props.user}
