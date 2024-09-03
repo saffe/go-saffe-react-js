@@ -8,6 +8,7 @@ interface Props {
   type: 'verification' | 'onboarding'
   onClose: () => void
   onFinish: () => void
+  onTimeout: () => void
 }
 
 interface CaptureEventMessage {
@@ -23,11 +24,13 @@ export const GoSaffeCapture = (props: Props) => {
   useEffect(() => {
     window.addEventListener('message', (e: CaptureEventMessage) => {
       if (e.data.source === 'go-saffe-capture') {
-        if (e.data.payload.event === 'close') {
-          return props.onClose()
-        }
-        if (e.data.payload.event === 'finish') {
-          return props.onFinish()
+        switch (e.data.payload.event) {
+          case 'close':
+            return props.onClose()
+          case 'finish':
+            return props.onFinish()
+          case 'timeout':
+            return props.onTimeout()
         }
       }
     })

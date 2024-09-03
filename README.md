@@ -28,6 +28,7 @@ export function Example() {
       endToEndId='' // identifier to keep consistency between front and backend
       onClose={() => console.log('')} // callback function called when end-user closes (cancels) the capture
       onFinish={() => console.log('')} // callback function called when end-user finishes (completes) the capture
+      onTimeout={() => console.log('')} // callback function called when the capture ends for timeout
     />
   )
 }
