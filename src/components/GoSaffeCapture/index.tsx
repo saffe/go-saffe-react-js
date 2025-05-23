@@ -33,7 +33,7 @@ export const CaptureComponent = (props: Props) => {
             props.user,
             props.endToEndId,
             props.type,
-	    props.extraData || {},
+            props.extraData || {},
           )
         })
       }
