@@ -1,6 +1,6 @@
 {
   "name": "@go.saffe/go-saffe-react-js",
-  "version": "1.2.1",
+  "version": "1.3.1",
   "description": "Go saffe capture component for react js",
   "author": "pedrovictorcruz",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
