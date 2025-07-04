@@ -29,7 +29,50 @@ export function Example() {
       onClose={() => console.log('')} // callback function called when end-user closes (cancels) the capture
       onFinish={() => console.log('')} // callback function called when end-user finishes (completes) the capture
       onTimeout={() => console.log('')} // callback function called when the capture ends for timeout
+      extraData={{ // optional extra configuration
+        settings: {
+          primaryColor: '#ff0000', // primary color for the capture interface
+          secondaryColor: '#00ff00', // secondary color for the capture interface
+          lang: 'pt' // language for the capture interface
+        },
+        sendResultsTo: {
+          media: 'email', // media type for sending results
+          email: 'user@example.com' // email address to send results to
+        }
+      }}
     />
   )
 }
+```
+
+## Extra Data Configuration
+
+The `extraData` parameter is optional and allows configuring additional capture aspects:
+
+### Settings
+- `primaryColor`: Primary color for the capture interface (hexadecimal format)
+- `secondaryColor`: Secondary color for the capture interface (hexadecimal format)
+- `lang`: Language for the capture interface (e.g., 'pt', 'en', 'es')
+
+### Send Results To
+- `media`: Media type for sending results (e.g., 'email')
+- `email`: Email address where results should be sent
+
+### Example with color settings only:
+```tsx
+<GoSaffeCapture
+  captureKey='<CAPTURE_KEY>'
+  user='<USER_IDENTIFIER>'
+  type='<TRANSACTION_TYPE>'
+  endToEndId='<END_TO_END_ID>'
+  onClose={() => console.log('Capture closed')}
+  onFinish={() => console.log('Capture finished')}
+  onTimeout={() => console.log('Capture timeout')}
+  extraData={{
+    settings: {
+      primaryColor: '#00ABAB',
+      secondaryColor: '#6c757d'
+    }
+  }}
+/>
 ```
