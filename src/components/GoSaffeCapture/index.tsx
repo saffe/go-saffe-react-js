@@ -39,7 +39,7 @@ export const CaptureComponent = (props: Props) => {
 					props.user,
 					props.endToEndId,
 					props.type,
-          parseExtraData(props.extraData),
+					parseExtraData(props.extraData),
 				);
 			}
 		};
