@@ -31,13 +31,13 @@ export function Example() {
       onTimeout={() => console.log('')} // callback function called when the capture ends for timeout
       extraData={{ // optional extra configuration
         settings: {
-          primaryColor: '#ff0000', // primary color for the capture interface
-          secondaryColor: '#00ff00', // secondary color for the capture interface
-          lang: 'pt' // language for the capture interface
+          primaryColor: '#00ABAB', // primary color for the capture interface
+          secondaryColor: '#6A6A6A', // secondary color for the capture interface
+          lang: 'en' // language for the capture interface
         },
         sendResultsTo: {
           media: 'email', // media type for sending results
-          email: 'user@example.com' // email address to send results to
+          email: 'valid_email@domain.com' // email address to where results should be sent
         }
       }}
     />
@@ -45,20 +45,11 @@ export function Example() {
 }
 ```
 
-## Extra Data Configuration
+The `extraData` parameter is **optional** and allows for dynamic changes specific to the transaction, such as language and colors. It also allows to send sandbox transaction results in a dynamic way to a specific email address.
 
-The `extraData` parameter is optional and allows configuring additional capture aspects:
+Primary and secondary colors should be informed in hexadecimal code. Possible values for the key "lang" at the moment are "en" so that the capture interface is presented in english, "pt" for the language to be portuguese, and "es" for spanish.
 
-### Settings
-- `primaryColor`: Primary color for the capture interface (hexadecimal format)
-- `secondaryColor`: Secondary color for the capture interface (hexadecimal format)
-- `lang`: Language for the capture interface (e.g., 'pt', 'en', 'es')
-
-### Send Results To
-- `media`: Media type for sending results (e.g., 'email')
-- `email`: Email address where results should be sent
-
-### Example with color settings only:
+### Example of `extraData` with color settings only:
 ```tsx
 <GoSaffeCapture
   captureKey='<CAPTURE_KEY>'
@@ -71,7 +62,7 @@ The `extraData` parameter is optional and allows configuring additional capture 
   extraData={{
     settings: {
       primaryColor: '#00ABAB',
-      secondaryColor: '#6c757d'
+      secondaryColor: '#6A6A6A'
     }
   }}
 />
