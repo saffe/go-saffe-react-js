@@ -29,7 +29,41 @@ export function Example() {
       onClose={() => console.log('')} // callback function called when end-user closes (cancels) the capture
       onFinish={() => console.log('')} // callback function called when end-user finishes (completes) the capture
       onTimeout={() => console.log('')} // callback function called when the capture ends for timeout
+      extraData={{ // optional extra configuration
+        settings: {
+          primaryColor: '#00ABAB', // primary color for the capture interface
+          secondaryColor: '#6A6A6A', // secondary color for the capture interface
+          lang: 'en' // language for the capture interface
+        },
+        sendResultsTo: {
+          media: 'email', // media type for sending results
+          email: 'valid_email@domain.com' // email address to where results should be sent
+        }
+      }}
     />
   )
 }
+```
+
+The `extraData` parameter is **optional** and allows for dynamic changes specific to the transaction, such as language and colors. It also allows to send sandbox transaction results in a dynamic way to a specific email address.
+
+Primary and secondary colors should be informed in hexadecimal code. Possible values for the key "lang" at the moment are "en" so that the capture interface is presented in english, "pt" for the language to be portuguese, and "es" for spanish.
+
+### Example of `extraData` with color settings only:
+```tsx
+<GoSaffeCapture
+  captureKey='<CAPTURE_KEY>'
+  user='<USER_IDENTIFIER>'
+  type='<TRANSACTION_TYPE>'
+  endToEndId='<END_TO_END_ID>'
+  onClose={() => console.log('Capture closed')}
+  onFinish={() => console.log('Capture finished')}
+  onTimeout={() => console.log('Capture timeout')}
+  extraData={{
+    settings: {
+      primaryColor: '#00ABAB',
+      secondaryColor: '#6A6A6A'
+    }
+  }}
+/>
 ```

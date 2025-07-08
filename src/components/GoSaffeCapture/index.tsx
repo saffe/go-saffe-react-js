@@ -1,15 +1,5 @@
 import React, { useEffect } from "react";
-
-interface InitFunc {
-	init(apiKey: string, user: string, endToEndId: string, type: string): any;
-}
-
-interface Props {
-	captureKey: string;
-	user: string;
-	endToEndId: string;
-	type: "verification" | "onboarding";
-}
+import { ExtraData, ExtraDataDTO, InitFunc, Props } from "./interfaces";
 
 declare global {
 	interface Window {
@@ -18,6 +8,27 @@ declare global {
 }
 
 export const CaptureComponent = (props: Props) => {
+	const parseExtraData = (extraData: ExtraData): ExtraDataDTO => {
+		const extraDataDTO: ExtraDataDTO = {};
+
+		if (extraData.settings) {
+			extraDataDTO.settings = {
+				primary_color: extraData.settings.primaryColor,
+				secondary_color: extraData.settings.secondaryColor,
+				lang: extraData.settings.lang,
+			};
+		}
+
+		if (extraData.sendResultsTo) {
+			extraDataDTO.send_results_to = {
+				media: extraData.sendResultsTo.media,
+				email: extraData.sendResultsTo.email,
+			};
+		}
+
+		return extraDataDTO;
+	};
+
 	useEffect(() => {
 		const scriptId = "GoSaffeCaptureComponent";
 
@@ -28,6 +39,7 @@ export const CaptureComponent = (props: Props) => {
 					props.user,
 					props.endToEndId,
 					props.type,
+					parseExtraData(props.extraData),
 				);
 			}
 		};
