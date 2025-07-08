@@ -30,29 +30,41 @@ export const CaptureComponent = (props: Props) => {
 	};
 
 	useEffect(() => {
-		if (window && document) {
-			const existScript = document.getElementById("GoSaffeCaptureComponent");
+		const scriptId = "GoSaffeCaptureComponent";
 
-			if (!existScript) {
-				const script = document.createElement("script");
-				script.id = "GoSaffeCaptureComponent";
-				script.src = "https://go.saffe.ai/cdn/latest";
-
-				const body = document.getElementsByTagName("body")[0];
-				body.appendChild(script);
-
-				script.addEventListener("load", () => {
-					window.GoSaffe.init(
-						props.captureKey,
-						props.user,
-						props.endToEndId,
-						props.type,
-						parseExtraData(props.extraData),
-					);
-				});
+		const initGoSaffe = () => {
+			if (window.GoSaffe) {
+				window.GoSaffe.init(
+					props.captureKey,
+					props.user,
+					props.endToEndId,
+					props.type,
+          parseExtraData(props.extraData),
+				);
 			}
+		};
+
+		let script: HTMLScriptElement | null = document.getElementById(
+			scriptId,
+		) as HTMLScriptElement;
+
+		if (!script) {
+			script = document.createElement("script");
+			script.id = scriptId;
+			script.src = "https://go.saffe.ai/cdn/latest";
+			script.onload = initGoSaffe;
+			document.body.appendChild(script);
+		} else {
+			initGoSaffe();
 		}
-	}, []);
+
+		return () => {
+			const existingScript = document.getElementById(scriptId);
+			if (existingScript) {
+				existingScript.remove();
+			}
+		};
+	}, [props.captureKey, props.user, props.endToEndId, props.type]);
 
 	return <div />;
 };
